@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Youtube-Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="google-signin-client_id" content="303269573869-3lqjl8rcr0lrup0va3srb7elhksr12q0.apps.googleusercontent.com">
+  </head>
+  <body>
+
+    <div id="pre-auth" class="show">
+      <h1>Let's join a Youtube Live Stream</h1>
+      <div class="g-signin2 button" data-scope="https://www.googleapis.com/auth/youtube"
+          data-clientid="303269573869-3lqjl8rcr0lrup0va3srb7elhksr12q0.apps.googleusercontent.com"
+          data-onsuccess="onSignIn" data-onfailure="onSignInFailure">
+      </div>
+    </div>
+    <div id="post-auth" class="hide">
+      <div id=user-info></div>
+      <div id="buttons">
+        <h1>Find your favorite live streaming videos</h1>
+        <input id="query" placeholder="find a video stream" type="text"/><button id="search-button" class="button1" disabled onclick="search()">Search</button>
+        <button id="sign-out" class="button1" onClick="signOut()">SignOut</button>
+      </div>
+      <div id="all-videos"></div>
+      <div id="live-video"></div>
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
