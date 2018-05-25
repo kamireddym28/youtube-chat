@@ -1,0 +1,148 @@
+html {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 20px;
+}
+
+body {
+  background: linear-gradient(270deg, red, black);
+}
+
+h1, h2, h4 {
+  margin: 20px 0;
+  color: #fff;
+}
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+#pre-auth, #post-auth {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.input {
+  height: 32px;
+  width: 200px;
+  max-height: 100px;
+  display: inline-block;
+}
+
+.button, .button1 {
+  display: inline-block;
+  padding: 8px;
+  border: none;
+  color: #cc0000;
+}
+
+.abcRioButtonContentWrapper {
+  color: #cc0000;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #fff;
+}
+
+#sign-out {
+  display: block;
+  margin: 25px 700px;
+}
+
+#live-video h2 {
+  display: block;
+  color: #fff;
+  width: 825px;
+  font-size: 20px;
+  padding: 20px 0;
+  margin-left: 40px;
+  line-height: 25px;
+}
+
+.video {
+  border: 2px solid #000;
+  border-radius: 8px;
+  background-color: linear-gradient(90deg, black, red);
+  margin: 10px;
+  padding: 10px;
+  max-height: 235px;
+  box-shadow: 2px 4px #000;
+}
+
+.video-title {
+  display: block;
+  padding: 5px 0 10px 0;
+  color: #fff;
+  font-size: 16px;
+}
+
+.chatbot-outline {
+  float: right;
+}
+
+.insert-chat {
+  font-size: 12px;
+  text-align: left;
+}
+
+.chat-messages, .search-results {
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 3px 0;
+}
+.chat-channel-name {
+  color: #ff4d4d;
+  height: 50px;
+  overflow-y: hidden;
+  font-size: 14px;
+}
+
+.chat-msg, .search-msg {
+  height: 50px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 12px;
+  color: #eee;
+}
+.search-msg-timestamp,.chat-msg-timestamp {
+  font-size: 10px;
+  font-weight: lighter;
+  color: #eee;
+}
+
+.chat-msg-timestamp {
+  float: right;
+}
+
+#chat-stats {
+  top: 250px;
+  float: right;
+  height: 250px;
+  right: 10px;
+}
+
+.chat-title, .search-bar {
+  text-align: center;
+  padding: 10px 0;
+  margin: 20px 0;
+}
+
+.back-btn {
+  display: block;
+  float: left;
+  margin-left: 75px;
+}
+
+.chatbot-outline {
+  top: 45px;
+}
+
+::placeholder {
+  font-weight: 200;
+}
+
+.canvasjs-chart-credit {
+  display: none !important;
+}
