@@ -30,7 +30,7 @@
 
 ## Reference Material 
  - Youtube API documentation found online.
- - Canvas JS tutorial can be found [here] (https://canvasjs.com/docs/charts/basics-of-creating-html5-chart/updating-chart-options/).
+ - Canvas JS tutorial can be found [here](https://canvasjs.com/docs/charts/basics-of-creating-html5-chart/updating-chart-options/).
  
 
 
