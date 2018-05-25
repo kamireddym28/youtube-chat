@@ -1,0 +1,23 @@
+{
+  "name": "youtube-stream-livechat",
+  "version": "1.0.0",
+  "description": "> This project is intended to create a webapp that allows users to login with their Google/Youtube credentials to login and join a live stream. Once in the stream, it should stream all chat messages and update live. Store these messages and create another interface that will return all chat messages from a given username.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamireddym28/youtube-chat.git"
+  },
+  "author": "kamireddym28@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kamireddym28/youtube-chat/issues"
+  },
+  "homepage": "https://github.com/kamireddym28/youtube-chat#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
