@@ -48,7 +48,7 @@ h1, h2, h4 {
 
 #sign-out {
   display: block;
-  margin: 25px 700px;
+  margin: 25px 625px;
 }
 
 #live-video h2 {
@@ -132,7 +132,7 @@ h1, h2, h4 {
 .back-btn {
   display: block;
   float: left;
-  margin-left: 75px;
+  margin-left: 25px;
 }
 
 .chatbot-outline {
