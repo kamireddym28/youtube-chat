@@ -6,7 +6,7 @@ function onSignIn(googleUser) {
   if ($('#post-auth').hasClass('hide')){
     $('#post-auth').removeClass('hide').addClass('show');
   }
-  loadAPIClientInterfaces();
+  apiInterface();
 }
 
 // function to execute on sign-in failure
@@ -20,9 +20,9 @@ function onSignInFailure() {
 }
 
 // function to load youtube API
-function loadAPIClientInterfaces() {
+function apiInterface() {
   gapi.client.load('youtube', 'v3', function() {
-    handleAPILoaded();
+    onAPILoad();
   });
 }
 
