@@ -24,18 +24,18 @@
     </div>
     <div id="post-auth" class="hide">
       <div id=user-info></div>
-      <div id="buttons">
+      <div id="button-controls">
         <h1>Find your favorite live streaming videos</h1>
-        <input id="query" placeholder="find a video stream" type="text" class="form-control input" aria-describedby="inputGroup-sizing-sm"/><button id="search-button" class="btn btn-danger" disabled >Search</button>
+        <input id="search-string" placeholder="find a video stream" type="text" class="form-control input" aria-describedby="inputGroup-sizing-sm"/><button id="search-button" class="btn btn-danger" disabled >Search</button>
         <button id="sign-out" class = "btn btn-danger">SignOut</button>
       </div>
-      <div id="all-videos"></div>
-      <div id="live-video"></div>
+      <div id="list-videos"></div>
+      <div id="video-player"></div>
     </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js" type="text/javascript"></script>
     <script src="js/stats.js"></script>
     <script src="js/main.js"></script>
     <script src="js/auth.js"></script>
