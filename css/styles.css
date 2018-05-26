@@ -11,6 +11,7 @@ h1, h2, h4 {
   margin: 20px 0;
   color: #fff;
 }
+
 .show {
   display: block;
 }
@@ -32,13 +33,6 @@ h1, h2, h4 {
   display: inline-block;
 }
 
-.button, .button1 {
-  display: inline-block;
-  padding: 8px;
-  border: none;
-  color: #cc0000;
-}
-
 .abcRioButtonContentWrapper {
   color: #cc0000;
   font-size: 16px;
@@ -47,8 +41,7 @@ h1, h2, h4 {
 }
 
 #sign-out {
-  display: block;
-  margin: 25px 625px;
+  margin: 25px;
 }
 
 #video-player h2 {
