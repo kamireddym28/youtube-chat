@@ -1,12 +1,12 @@
-function handleAPILoaded() {
+function onAPILoad() {
   $('#search-button').attr('disabled', false);
-  $('#buttons').show();
+  $('#button-controls').show();
 }
 
 // function to search youtube videos based on search string
 $("#search-button").on("click", function(){
-  $('#all-videos').empty();
-  var q = $('#query').val();
+  $('#list-videos').empty();
+  var q = $('#search-string').val();
   var request = gapi.client.youtube.search.list({
     q: q,
     type: 'video',
@@ -18,37 +18,36 @@ $("#search-button").on("click", function(){
   request.execute(function(response) {
       var videos = response.result.items;
       videos.forEach(function(item) {
-        buildVideo(item);
+        videoList(item);
       })
     });
 })
 
 //function to play a youtube video
-function clickVideo(v1) {
-  $('#all-videos').hide();
-  $('#buttons').hide();
-  $('#live-video').show();
+function playVideo(v1) {
+  $('#list-videos').hide();
+  $('#button-controls').hide();
+  $('#video-player').show();
   if($('#chat-stats').length>0) {
     $('#chat-stats').remove();
   }
   var frame = $('<div>').addClass('insert-video col-sm-8 col-md-8');
   var vframe = $('<iframe>').attr('src', `https://www.youtube.com/embed/${v1.id.videoId}?autoplay=1`);
   var vstats = $('<div>').attr('id', 'chat-stats').addClass('chartContainer col-sm-4 col-md-4');
-    vframe.attr('allowfullscreen');
     vframe.attr('frameborder', '0');
     vframe.width(825);
     vframe.height(475);
   let = chatData = [];
 
-  $('#live-video').append(frame).append(vstats).append(back);
+  $('#video-player').append(frame).append(vstats).append(back);
   $('#chat-stats').show();
   updateStats = stats();
   var vTitle = $('<h2>').addClass('insert-video-title').text(v1.snippet.title);
   frame.append(vTitle).append(vframe);
   setInterval(function() {
-    getLiveChat(v1.id.videoId);
+    retrieveChatData(v1.id.videoId);
     setTimeout(function() {
-      buildChat(chatData);
+      populateChat(chatData);
       $('.chat-messages').scrollTop($('.chat-messages')[0].scrollHeight);
     }, 1500);
     var s = getStats(chatData);
@@ -67,7 +66,7 @@ function clickVideo(v1) {
        let userName = $('#chat-user').val();
        $('.search-results').empty();
        let searchResults = chatData.filter(message => message.channelName === userName);
-       buildSearchResult(searchResults);
+       userMessageBuilder(searchResults);
     })
     chatBotSearch.append(searchBar);
     chatBotSearch.append(searchUser);
@@ -76,20 +75,20 @@ function clickVideo(v1) {
   // function to return to the previous page
    var back = $('<button>').addClass('back-btn btn btn-danger').text('Previous Page');
        back.on('click', function() {
-         $('#live-video').empty();
-         $('#buttons').show();
-         $('#live-video').hide();
+         $('#video-player').empty();
+         $('#button-controls').show();
+         $('#video-player').hide();
          $('#chat-stats').empty();
          $('#chat-stats').hide();
-         $('#all-videos').show();
+         $('#list-videos').show();
          chatData = [];
        });
    chatBotOutline.append(chatBotSearch);
-   $('#live-video').append(frame).append(chatBotOutline).append(back);
+   $('#video-player').append(frame).append(chatBotOutline).append(back);
 }
 
 // function to show the messages from a particular user
-function buildSearchResult(searchResults) {
+function userMessageBuilder(searchResults) {
   var searchResult = $('<div>').addClass('search-results col-sm-12 col-md-12');
   var header = $('<h4>').addClass('search-result-header');
   header.text(`There are ${searchResults.length} messages from ${searchResults[0].channelName}.`);
@@ -108,22 +107,22 @@ function buildSearchResult(searchResults) {
 }
 
 // function to build the list of videos with corresponding thumb nails and titles
-function buildVideo(v) {
+function videoList(v) {
   var outline = $('<div>').addClass('outline col-sm-6 col-md-6');
   var video = $('<div>').addClass('video');
   var thumbnail = $('<img>').addClass('video-thumb').attr('src', v.snippet.thumbnails.medium.url);
   var text = trimText(v.snippet.title);
   var title = $('<span>').addClass('video-title').text(text);
   video.on('click', function() {
-    clickVideo(v);
+    playVideo(v);
   })
   video.append(thumbnail).append(title);
   outline.append(video);
-  $('#all-videos').append(outline);
+  $('#list-videos').append(outline);
 }
 
 // function to retrieve the live chat based on liveChatId
-function getLiveChat(videoId) {
+function retrieveChatData(videoId) {
     var requestId = gapi.client.youtube.videos.list({
       id: videoId,
       part: "liveStreamingDetails",
@@ -163,7 +162,7 @@ function getLiveChat(videoId) {
 }
 
 // function to populate the obtained live chat comments on the web page
-function buildChat(chat) {
+function populateChat(chat) {
   if($('.chat-outline').length>0) {
     $('.chat-outline').remove();
   }
@@ -190,7 +189,7 @@ function buildChat(chat) {
     msgContainer.prepend(message);
   });
   chatOutline.append(chatContainer);
-  $('#live-video').append(chatOutline);
+  $('#video-player').append(chatOutline);
 
 }
 
